@@ -12,6 +12,7 @@ public class InputTest {
 	 * @throws IOException 
 	 */
 	public static String bufferedReaderTest() throws IOException {
+
 		BufferedReader bufferedReader = new BufferedReader(
 				new InputStreamReader(System.in));
 		return bufferedReader.readLine();

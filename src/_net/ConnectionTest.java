@@ -18,17 +18,20 @@ public class ConnectionTest {
 	 */
 	public static void main(String[] args) {
 		String protocol = "http";
-		String host="www.hao123.com";
+		String host="localhost:8080";
+		String file = "thinking/ConnectionTest_Servlet";
 		URL url = null;
 //		URLConnection urlConn= null;
 		HttpURLConnection urlConn= null;
 		try {
-			url = new URL(protocol, host, "");
+//			url = new URL(protocol, host, file);
+			url = new URL("http://localhost:8080/thinking/ConnectionTest_Servlet");
 			urlConn = (HttpURLConnection) url.openConnection();
 //			urlConn.setDoInput(true);
 			urlConn.setDoInput(true);
 //			urlConn.setRequestProperty("method", "post");
 //			urlConn.setRequestProperty("port", "80");
+			urlConn.setRequestMethod("POST");
 			Map<String, List<String>> requestPropertys = urlConn.getRequestProperties();
 			displayInfo(requestPropertys);
 			
@@ -55,8 +58,8 @@ public class ConnectionTest {
 			}
 			in.close();
 			
-//			String respondMsg = urlConn.getResponseMessage();
-//			System.out.println(respondMsg);
+			String respondMsg = urlConn.getResponseMessage();
+			System.out.println(respondMsg);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<root>
-  <book categroy="it">
-    <title>think</title>
-    <price>10</price>
-  </book>
+<?xml version="1.0" encoding="UTF-8"?><root>
+<book categroy="it">
+<title>thinking</title>
+</boot>
 </root>

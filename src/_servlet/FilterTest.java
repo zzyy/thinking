@@ -41,7 +41,7 @@ public class FilterTest implements Filter {
 	 * @see Filter#init(FilterConfig)
 	 */
 	public void init(FilterConfig fConfig) throws ServletException {
-		// TODO Auto-generated method stub
+		System.out.println("------------filter init--------------------");
 	}
 
 }

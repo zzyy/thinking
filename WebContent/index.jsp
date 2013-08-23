@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%! public void jspInit(){System.out.printf("123"); } int m = 0; %>
+<%! public void jspInit(){System.out.printf("-------------jspInit-----------------");} %>
+<%! protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+	System.out.printf("-------------jsp post-----------------");
+} %>
 	welcome1111
-	<% int i = 0;  %>
+	<% int i = 0; %>
 </body>
 </html>

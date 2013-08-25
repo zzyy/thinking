@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><root>
+<?xml version="1.0" encoding="UTF-8"?><root xmlns:s="123">
 <book categroy="it">
-<title>thinking</title>
-</boot>
+<s:title>thinking</s:title>
+<price>10</price>
+</book>
 </root>

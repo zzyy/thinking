@@ -7,6 +7,9 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Result;
 import javax.xml.transform.Transformer;
@@ -42,7 +45,7 @@ public class SAXTest {
 			//设置xml属性
 			Transformer transformer = handler.getTransformer();
 			transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-			transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+			transformer.setOutputProperty(OutputKeys.ENCODING, "GBK");
 			
 			File xml = new File("./test.xml");
 			//设置保存
@@ -55,19 +58,19 @@ public class SAXTest {
 			
 			//新建属性
 			AttributesImpl attr = new AttributesImpl();
-			attr.addAttribute("", "", "categroy", "", "it");
+			attr.addAttribute("", "", "zy:categroy", "", "it");
 			
-			handler.startElement("", "", "book", attr);
+			handler.startElement("uri", "", "zy:book", attr);
 			
-			handler.startElement("", "", "title", null);
+			handler.startElement("", "", "zy:title", null);
 			handler.characters("thinking".toCharArray(), 0, "thinking".toCharArray().length);
-			handler.endElement("", "", "title");
+			handler.endElement("", "", "zy:title");
 			
 			handler.startElement("", "", "price", null);
 			handler.characters("10".toCharArray(), 0, 2);
 			handler.endElement("", "", "price");
 			
-			handler.endElement("", "", "book");
+			handler.endElement("", "", "zy:book");
 			handler.endElement("", "", "root");
 			
 			handler.endDocument();
@@ -94,18 +97,23 @@ public class SAXTest {
 		try {
 			File xmlFile = new File("./test.xml");
 			
-			XMLReader reader = XMLReaderFactory.createXMLReader();
+			/*XMLReader reader = XMLReaderFactory.createXMLReader();
 			DefaultHandler handler = new MyHandler();
 			reader.setContentHandler(handler);
 			reader.setErrorHandler(handler);
 			
-			reader.parse(new InputSource(new FileReader(xmlFile)));
+			reader.parse(new InputSource(new FileReader(xmlFile)));*/
+			
+			SAXParser saxParser = SAXParserFactory.newInstance().newSAXParser();
+			saxParser.parse(xmlFile, new MyHandler());
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
 			e.printStackTrace();
 		}
 	}
@@ -126,11 +134,17 @@ class MyHandler extends DefaultHandler{
 	@Override
 	public void startElement(String uri, String localName, String qName,
 			Attributes attributes) throws SAXException {
-		 System.out.println(" -startElement qName:" + qName +"-uri: "+ uri +" -localName: "+ localName);
+		 System.out.println(" -startElement qName: " + qName +" |uri: "+ uri +" |localName: "+ localName);
 		 
 		 for(int i=0, length=attributes.getLength(); i<length; i++){
-			 System.out.println("   "+attributes.getQName(i) +"-"+ attributes.getValue(i));
+			 System.out.println("   "+attributes.getQName(i) +":"+ attributes.getValue(i));
 		 }
+	}
+
+	@Override
+	public void startPrefixMapping(String prefix, String uri)
+			throws SAXException {
+		System.out.println("   prefix:"+prefix +" |uri:" +uri);
 	}
 
 	@Override

@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><root xmlns:s="123">
-<book categroy="it">
-<s:title>thinking</s:title>
+<?xml version="1.0" encoding="GBK"?><root>
+<zy:book xmlns:zy="uri" zy:categroy="it">
+<zy:title>thinking</zy:title>
 <price>10</price>
-</book>
+</zy:book>
 </root>

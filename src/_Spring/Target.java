@@ -1,18 +1,14 @@
 package _Spring;
 
 public class Target {
-	Bean bean=null;
 
-	public void setBean(Bean bean) {
-		this.bean = bean;
+	private User user;
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 	
-	public void getId(){
-		System.out.println(">>>fn1--" + bean.getId());
-	}
-	
-	public void getName(){
-		
-		System.out.println(">>>getName--"+bean.getName());
+	public void display(){
+		System.out.println(">>target.display()" + user.getId() );
 	}
 }

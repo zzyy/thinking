@@ -3,16 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
-	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
-	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<context:component-scan base-package="_Spring"/>
-	
 	<bean name="user" class="_Spring.User" init-method="init">
-		<constructor-arg index="0" value="1"></constructor-arg>
+		<constructor-arg index="0" value="2"></constructor-arg>
 		<constructor-arg index="1" value="20"></constructor-arg>
 		<constructor-arg index="2" value="zy"></constructor-arg>
 	</bean>
@@ -21,9 +17,6 @@
 		<property name="user" ref="user"></property>
 	</bean>
 	
-	<aop:aspectj-autoproxy/>
-	<!-- <bean name="aspectTest" class="_Spring.AspectTest"/> -->
-	
 	<bean name="pointcutMethod" class="_Spring.PointcutMethod"></bean>
 	<aop:config>
 		<aop:aspect id="myAspect" ref="pointcutMethod">
@@ -31,5 +24,6 @@
 			<aop:before method="before" pointcut-ref="myPointcut"/>
 		</aop:aspect>	
 	</aop:config>
+	
 	
 </beans>

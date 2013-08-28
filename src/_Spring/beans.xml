@@ -26,7 +26,7 @@
 	
 	<bean name="pointcutMethod" class="_Spring.PointcutMethod"></bean>
 	<aop:config>
-		<aop:aspect id="myAspect" ref="pointcutMethod">
+		<aop:aspect id="myAspect" ref="pointcutMethod" order="100">
 			<aop:pointcut expression="execution(* display(..))" id="myPointcut"/>
 			<aop:before method="before" pointcut-ref="myPointcut"/>
 		</aop:aspect>	

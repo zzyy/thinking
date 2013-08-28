@@ -9,6 +9,6 @@ public class Target {
 	}
 	
 	public void display(){
-		System.out.println(">>target.display()" + user.getId() );
+		System.out.println("----target.display()" + user.getId() );
 	}
 }

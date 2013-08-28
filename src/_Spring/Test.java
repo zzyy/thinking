@@ -2,6 +2,8 @@ package _Spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.io.AbstractResource;
+import org.springframework.core.io.Resource;
 
 public class Test {
 
@@ -25,6 +27,10 @@ public class Test {
 		PointcutMethod point = (PointcutMethod) context.getBean("pointcutMethod");
 		System.out.println(point);
 		target.display();
-		
+	}
+	
+	@org.junit.Test
+	public void resourceTest(){
+		ApplicationContext context = new ClassPathXmlApplicationContext("./_Spring/beans2.xml");
 	}
 }

@@ -13,8 +13,8 @@ public class Test {
 	@org.junit.Test
 	public void createDB(){
 		Configuration cfg = new Configuration().configure("./_hibernate/hibernate.cfg.xml");
-//		SchemaExport export = new SchemaExport(cfg);
-//		export.create(true, true);
+		SchemaExport export = new SchemaExport(cfg);
+		export.create(true, true);
 	}
 	
 	@org.junit.Test
@@ -27,6 +27,14 @@ public class Test {
 		
 		Category category1 = new Category(1, "qwe");
 		session.save(category1);
+		tx.commit();
+
+		tx = session.beginTransaction();
+		category1.setName("rty");
+		session.save(category1);
+		category1.setName("uio");
+		session.save(category1);
+		
 		Category category2 = new Category(1, "asd");
 		session.save(category2);
 		

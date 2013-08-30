@@ -22,20 +22,23 @@ public class Goods {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public Goods setId(int id) {
 		this.id = id;
+		return this;
 	}
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
+	public Goods setName(String name) {
 		this.name = name;
+		return this;
 	}
 	public Category getCategory() {
 		return category;
 	}
-	public void setCategory(Category category) {
+	public Goods setCategory(Category category) {
 		this.category = category;
+		return this;
 	}
 	
 	

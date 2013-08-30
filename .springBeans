@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>src/_Spring/beans.xml</config>
+		<config>src/_spring_hibernate/transcationBeans.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

@@ -3,6 +3,7 @@ package _net;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -18,39 +19,44 @@ public class ConnectionTest {
 	 */
 	public static void main(String[] args) {
 		String protocol = "http";
-		String host="localhost:8080";
-		String file = "thinking/ConnectionTest_Servlet";
+		String host="www.hao123.com";
+		String file = "";
 		URL url = null;
 //		URLConnection urlConn= null;
 		HttpURLConnection urlConn= null;
 		try {
 //			url = new URL(protocol, host, file);
-			url = new URL("http://localhost:8080/thinking/ConnectionTest_Servlet");
+			url = new URL("http://localhost:8080/thinking/connect?jsopn='asd'");
 			urlConn = (HttpURLConnection) url.openConnection();
-//			urlConn.setDoInput(true);
 			urlConn.setDoInput(true);
+			urlConn.setDoOutput(true);
 //			urlConn.setRequestProperty("method", "post");
-//			urlConn.setRequestProperty("port", "80");
-			urlConn.setRequestMethod("POST");
+			urlConn.setRequestProperty("Connection", "keep-alive");
+			urlConn.setRequestMethod("GET");
 			Map<String, List<String>> requestPropertys = urlConn.getRequestProperties();
 			displayInfo(requestPropertys);
 			
+			PrintWriter out = new PrintWriter(urlConn.getOutputStream());
+			out.print("jsonp=123");
+//			out.close();
 			urlConn.connect();
+			
+			out.print("123");
+			out.flush();
+//			out.close();
+			
+			System.out.println("response headFiles");
 			Map<String, List<String>> headFiles = urlConn.getHeaderFields();
 			displayInfo(headFiles);
+			
 			
 			String type = urlConn.getContentType();
 			String encoding = urlConn.getContentEncoding();
 			int length = urlConn.getContentLength();
 			System.out.println(type +"-"+length +"-"+encoding);
 			
-			/*System.out.println(urlConn.getHeaderField(0));
-			System.out.println(urlConn.getHeaderField(1));
-			System.out.println(urlConn.getHeaderField(2));
-			System.out.println(urlConn.getHeaderField(3));
-			System.out.println(urlConn.getHeaderField(4));
-			System.out.println(urlConn.getHeaderField(5));
-			System.out.println();*/
+			String respondMsg = urlConn.getResponseMessage();
+			System.out.println(respondMsg);
 			
 			BufferedReader in = new BufferedReader(new InputStreamReader(urlConn.getInputStream(), "UTF-8"));
 			while(in.readLine() != null){
@@ -58,8 +64,6 @@ public class ConnectionTest {
 			}
 			in.close();
 			
-			String respondMsg = urlConn.getResponseMessage();
-			System.out.println(respondMsg);
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

@@ -1,5 +1,6 @@
 package _net;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ConnectionTest_Servlet
  */
-@WebServlet("/ConnectionTest_Servlet")
+//@WebServlet("/ConnectionTest_Servlet")
 public class ConnectionTest_Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -36,10 +37,14 @@ public class ConnectionTest_Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("----post----");
+		BufferedReader in = request.getReader();
+		System.out.println(in.readLine());
+		
 		PrintWriter out = new PrintWriter(response.getOutputStream());
-		String fn = request.getParameter("jsonp");
-		out.println(fn + "('sccuess')");
+//		String fn = request.getParameter("jsonp");
+//		System.out.println(fn);
+		out.println("('sccuess')");
+		out.flush();
 		out.close();
 	}
-
 }

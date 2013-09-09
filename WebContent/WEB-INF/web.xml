@@ -21,6 +21,10 @@
     </description>
   <display-name>Servlet and JSP Examples</display-name>
   
+<!--   <listener>
+  	<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
   <listener>
   	<listener-class>_servlet.MyServletContextListener</listener-class>
   </listener>
@@ -41,7 +45,17 @@
   <servlet-mapping>
     <servlet-name>filterTestServlet</servlet-name>
     <url-pattern>/filterTest</url-pattern>
+  </servlet-mapping> -->
+  
+  <servlet>
+  	<servlet-name>connectionTest</servlet-name>
+  	<servlet-class>_net.ConnectionTest_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>connectionTest</servlet-name>
+  	<url-pattern>/connect</url-pattern>
   </servlet-mapping>
+  
   
   <welcome-file-list>
     <welcome-file>index.jsp</welcome-file>

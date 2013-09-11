@@ -19,8 +19,8 @@ public class Server {
 		start();
 		System.out.println("ready...");
 		
-		Thread.sleep(5*60*1000);
+		/*Thread.sleep(5*60*1000);
 		System.out.println("exit");
-		System.exit(0);
+		System.exit(0)*/;
 	}
 }

@@ -1,19 +1,25 @@
 package _ws.jaxws;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import javax.xml.ws.soap.SOAPBinding;
 
 public class Client {
 	public static void main(String[] args) {
-		QName seviceName = new QName("http://jaxws._ws/", "helloWorld");
-		Service service = Service.create(seviceName);
+		try {
+			QName sQname = new QName("http://jaxws._ws/", "HelloWorldImpService");
+			URL sUrl = new URL("http://localhost:8888/helloWorld?wsdl");
+			
+			Service service = Service.create(sUrl, sQname);
+			HelloWorld hw = service.getPort(HelloWorld.class);
+			
+			System.out.println(hw.sayHi("123"));
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		
-		String endpointAdress = "http://localhost:8888/helloWorld";
-		QName portName = new QName("http://jaxws._ws/", "helloWorldPort");
-		service.addPort(portName, SOAPBinding.SOAP11HTTP_BINDING, endpointAdress);
-		
-		HelloWorld client = service.getPort(HelloWorld.class);
-		System.out.println(client.sayHi("asd"));
 	}
 }

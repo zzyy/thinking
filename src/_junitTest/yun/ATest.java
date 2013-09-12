@@ -2,6 +2,9 @@ package _junitTest.yun;
 
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -57,6 +60,7 @@ public class ATest {
 
 	@Test
 	public void test(){
+		List<Object[]> list = Arrays.asList(new Object[][]{{0,1},{-1,-2}});
 		int[][][] a = new int[][][]{{{1,2,3}},{{4,5,6}}};
 		System.out.println(a[0][1]);
 	}

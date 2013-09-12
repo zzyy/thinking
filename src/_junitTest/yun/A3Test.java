@@ -11,19 +11,19 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(Parameterized.class)
-public class A2Test {
-	private Vo param;
+public class A3Test {
+	private Object[] param;
 	private int result;
 	
 	
 	@Parameters
 	public static List<Object[]> data(){
 		return Arrays.asList(new Object[][]{
-				{new Vo(1, 2),3},{new Vo(1, 3),-2}
+				{new Object[]{1,2},3},{new Object[]{-3,1},-2}
 		});
 	}
 	
-	public A2Test(Vo param, int result) {
+	public A3Test(Object[] param, int result) {
 		this.param = param;
 		this.result = result;
 	}
@@ -31,20 +31,8 @@ public class A2Test {
 	@Test
 	public void testAdd() {
 		A a = new A();
-		assertEquals(result, a.add(param.a, param.b));
-		
+		System.out.println(Arrays.toString(param) +" >>>"+ result);
+		assertEquals(result, a.add((Integer)param[0], (Integer)param[1]));
 	}
 }
 
-class Vo {
-	int a;
-	int b;
-	public Vo(int a, int b) {
-		this.a = a;
-		this.b = b;
-	}
-	@Override
-	public String toString() {
-		return a +"---" + b;
-	}
-}

@@ -7,13 +7,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
-	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jdom-2.05"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dom4j-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-3.2.4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate-3.6.10"/>
-	<classpathentry kind="lib" path="E:/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="G:/Framework/hibernate-distribution-3.6.10.Final/mysql-connector-java-5.1.22-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

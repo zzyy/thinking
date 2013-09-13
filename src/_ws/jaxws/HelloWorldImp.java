@@ -1,13 +1,15 @@
 package _ws.jaxws;
 
 import javax.jws.HandlerChain;
+import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 @WebService(endpointInterface="_ws.jaxws.HelloWorld")
-@HandlerChain(file="_ws/jaxws/handler-chain.xml")
+//@HandlerChain(file="_ws/jaxws/handler-chain.xml")
 public class HelloWorldImp implements HelloWorld {
 
 	@Override
+	@WebMethod(operationName="hi")
 	public String sayHi(String name) {
 		System.out.println();
 		System.out.println(name + ": hi");
@@ -15,8 +17,8 @@ public class HelloWorldImp implements HelloWorld {
 	}
 
 	@Override
-	public String getName() throws Exception {
-		throw new Exception("***exception**");
+	public Pojo getName(Pojo p) throws Exception {
+		return new Pojo();
 	}
 
 }

@@ -11,8 +11,8 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/jdom-2.05"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/dom4j-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-3.2.4"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate-3.6.10"/>
 	<classpathentry kind="lib" path="G:/Framework/hibernate-distribution-3.6.10.Final/mysql-connector-java-5.1.22-bin.jar"/>
+	<classpathentry kind="lib" path="G:/Framework/Repository/junit/junit/4.10/junit-4.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -10,7 +10,7 @@ import javax.jws.WebService;
 
 public interface HelloWorld {
 	@WebMethod(operationName="hi")
-	public @WebResult(name="result") String sayHi(@WebParam(name="name") String name);
+	public @WebResult(name="result") String sayHi(@WebParam(name="name") String name) throws Exception;
 	
 	public Pojo getName(Pojo p) throws Exception;
 }

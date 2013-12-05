@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+			targetNamespace="http://www.example.org/zy/" 
+			xmlns:tns="http://www.example.org/zy/" elementFormDefault="qualified">
+
+	<xsd:element name="add" type="tns:user"/>
+	<xsd:element name="list" type="tns:userList"></xsd:element>
+	
+	<xsd:complexType name="user">
+		<xsd:sequence>
+			<xsd:element name="id" type="xsd:int" />
+			<xsd:element name="name" type="xsd:string" />
+			<xsd:element name="gender" type="xsd:boolean" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="userList">
+		<xsd:sequence minOccurs="0" maxOccurs="unbounded">
+			<xsd:element name="id" type="xsd:int" />
+			<xsd:element name="name" type="xsd:string" />
+			<xsd:element name="gender" type="xsd:boolean" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema> 

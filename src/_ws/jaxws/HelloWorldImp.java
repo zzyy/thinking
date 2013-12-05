@@ -10,9 +10,12 @@ public class HelloWorldImp implements HelloWorld {
 
 	@Override
 	@WebMethod(operationName="hi")
-	public String sayHi(String name) {
+	public String sayHi(String name) throws Exception {
 		System.out.println();
 		System.out.println(name + ": hi");
+		if("zy".equals(name)){
+			throw new Exception("fault Exception");
+		}
 		return name + ": hi";
 	}
 

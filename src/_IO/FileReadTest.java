@@ -4,12 +4,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 import javax.print.attribute.standard.Chromaticity;
+
+import org.junit.Test;
 
 public class FileReadTest {
 
@@ -54,5 +58,30 @@ public class FileReadTest {
 		fc.close();
 	}
 	
-	
+	@Test
+	public void readDealWrite(){
+		File srcFile = null;
+		srcFile = new File("./src/_IO/src.txt");
+		File targetFile = new File("./src/_IO/target.txt"); 
+		try {
+			PrintStream out = new PrintStream(new FileOutputStream(targetFile, true));
+			
+			BufferedReader in = new BufferedReader(new FileReader(srcFile));
+			String propertyStr = null;  
+			while((propertyStr = in.readLine()) != null){
+				String[] propertyArr = propertyStr.split("\\W+", 2);
+				System.out.println(propertyArr[0]);
+				System.out.println(propertyArr[1]);
+				out.println(propertyArr[0]+"="+propertyArr[1]);
+			}
+			
+			out.flush();
+			out.close();
+			in.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

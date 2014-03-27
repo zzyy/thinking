@@ -1,0 +1,7 @@
+1234567890      123213
+abcdefghij       1221
+ABCDEFGHIJ    qwe
+0123456789         awqe1234567890=123213
+abcdefghij=1221
+ABCDEFGHIJ=qwe
+0123456789=awqe

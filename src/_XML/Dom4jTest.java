@@ -23,8 +23,8 @@ public class Dom4jTest {
 	 * @throws DocumentException 
 	 */
 	public static void main(String[] args) throws DocumentException {
-//		createXml();
-		readXml();
+		createXml();
+//		readXml();
 	}
 	
 	public static void createXml(){

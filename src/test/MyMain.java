@@ -22,4 +22,5 @@ public class MyMain {
 		System.out.println("obj.counter1==" + obj.counter1);
 		System.out.println("obj.counter2==" + obj.counter2);
 	}
+	
 }
